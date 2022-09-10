@@ -24,28 +24,37 @@ const UserEntry = ({ mainList, setMainList }) => {
     setDescription("");
   };
   return (
-    <div className="container">
+    <div className="container d-flex align-items-center justify-content-center p-3">
       <div className="row">
-        <div className="col-12">
-          <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          <div className="col-auto">
+            {" "}
             <input
               value={name}
               id="first_name"
               name="first_name"
               type="text"
+              placeholder="Task name"
               onChange={(event) => setName(event.target.value)}
             />
+          </div>
+          <div className="col-auto">
             <input
               value={description}
               id="first_name"
               name="first_name"
               type="text"
+              placeholder="Task description"
               onChange={(event) => setDescription(event.target.value)}
             />
+          </div>
 
-            <button type="submit">Submit form</button>
-          </form>
-        </div>
+          <div className="col-auto d-flex align-items-center justify-content-center p-1 ">
+            <button type="submit" className="btn btn-primary w-100">
+              Create task
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

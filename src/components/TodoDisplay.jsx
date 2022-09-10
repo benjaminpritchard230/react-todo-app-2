@@ -17,7 +17,7 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
 
   return (
     <div
-      className="card"
+      className="card shadow"
       style={{
         backgroundColor: done ? "rgba(0, 255, 0, 0.5)" : "white",
       }}
@@ -30,7 +30,7 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
       </div>
       <span>
         <button
-          className="btn btn-primary w-45 m-1"
+          className="btn btn-danger w-45 m-1"
           onClick={() => {
             handleDeleteClick(item);
           }}
@@ -38,9 +38,9 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
           Delete
         </button>
         <button
-          className="btn btn-primary w-45 m-1"
+          className="btn btn-success w-45 m-1"
           onClick={() => {
-            setDone(true);
+            setDone(!done);
           }}
         >
           Done

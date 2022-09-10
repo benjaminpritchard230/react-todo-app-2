@@ -26,10 +26,13 @@ const TodoApp = () => {
     <div className="container">
       <HeaderBar text="To-do App" />
       <div className="row">
-        <div className="col-6">{createCards()}</div>
-        <div className="col-6">
+        <div className="col-12">
+          {" "}
           {<UserEntry mainList={mainList} setMainList={setMainList} />}
         </div>
+      </div>
+      <div className="row">
+        <div className="col-12">{createCards()}</div>
       </div>
     </div>
   );
