@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TodoDisplay from "./TodoDisplay";
 import UserEntry from "./UserEntry";
 import HeaderBar from "./HeaderBar";
 
 const TodoApp = () => {
-  const [mainList, setMainList] = useState([
-    { name: "ben", description: "go", id: 1234 },
-  ]);
+  const [mainList, setMainList] = useState(
+    JSON.parse(localStorage.getItem("mainList"))
+  );
+
+  useEffect(() => {
+    localStorage.setItem("mainList", JSON.stringify(mainList));
+  }, [mainList]);
 
   const createCards = () => {
     let cardsArray = [];

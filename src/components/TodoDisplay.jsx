@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 const TodoDisplay = ({ item, mainList, setMainList }) => {
-  const [done, setDone] = useState(false);
-
   const capitaliseFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -15,11 +13,29 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
     );
   };
 
+  //   let tempArray = [...array];
+  // const index = tempArray.findIndex((element) => element.id === 2);
+  // tempArray[index] = {
+  //   id: 2,
+  //   name: "New month",
+  //   abc: "1234abc",
+  //   xyz: "someVlaue"
+  // };
+  // setArray(tempArray);
+
+  const handleDoneClick = (item) => {
+    let tempArray = [...mainList];
+    const index = mainList.findIndex((element) => element.id === item.id);
+    console.log(tempArray[index]);
+    tempArray[index].done = !tempArray[index].done;
+    setMainList(tempArray);
+  };
+
   return (
     <div
       className="card shadow m-3"
       style={{
-        backgroundColor: done ? "rgba(0, 255, 0, 0.5)" : "white",
+        backgroundColor: item.done ? "rgba(0, 255, 0, 0.5)" : "white",
       }}
     >
       <div className="card-body">
@@ -39,7 +55,7 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
         <button
           className="btn btn-success w-45 m-1"
           onClick={() => {
-            setDone(!done);
+            handleDoneClick(item);
           }}
         >
           Done

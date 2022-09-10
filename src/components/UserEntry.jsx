@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const UserEntry = ({ mainList, setMainList }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [done, setDone] = useState(false);
   const date = new Date().toISOString().slice(0, 10);
   const id = uuidv4();
 
@@ -18,6 +19,7 @@ const UserEntry = ({ mainList, setMainList }) => {
           description: description,
           date: date,
           id: id,
+          done: done,
         },
       ]);
     }
