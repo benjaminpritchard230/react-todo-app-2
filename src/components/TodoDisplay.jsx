@@ -13,16 +13,6 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
     );
   };
 
-  //   let tempArray = [...array];
-  // const index = tempArray.findIndex((element) => element.id === 2);
-  // tempArray[index] = {
-  //   id: 2,
-  //   name: "New month",
-  //   abc: "1234abc",
-  //   xyz: "someVlaue"
-  // };
-  // setArray(tempArray);
-
   const handleDoneClick = (item) => {
     let tempArray = [...mainList];
     const index = mainList.findIndex((element) => element.id === item.id);
