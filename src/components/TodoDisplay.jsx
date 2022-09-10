@@ -17,7 +17,7 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
 
   return (
     <div
-      className="card shadow"
+      className="card shadow m-3"
       style={{
         backgroundColor: done ? "rgba(0, 255, 0, 0.5)" : "white",
       }}
@@ -26,7 +26,6 @@ const TodoDisplay = ({ item, mainList, setMainList }) => {
         <h5 className="card-title">{capitaliseFirstLetter(item.name)}</h5>
         <h6 className="card-subtitle mb-2 ">{item.date}</h6>
         <p className="card-text">{capitaliseFirstLetter(item.description)}</p>
-        <p>{item.id}</p>
       </div>
       <span>
         <button

@@ -27,7 +27,7 @@ const UserEntry = ({ mainList, setMainList }) => {
     <div className="container d-flex align-items-center justify-content-center p-3">
       <div className="row">
         <form onSubmit={handleSubmit}>
-          <div className="col-auto">
+          <div className="col-auto m-1">
             {" "}
             <input
               value={name}
@@ -38,7 +38,7 @@ const UserEntry = ({ mainList, setMainList }) => {
               onChange={(event) => setName(event.target.value)}
             />
           </div>
-          <div className="col-auto">
+          <div className="col-auto m-1">
             <input
               value={description}
               id="first_name"
