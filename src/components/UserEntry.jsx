@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const UserEntry = ({ mainList, setMainList }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const date = new Date().toISOString().slice(0, 10);
-  const id = Math.floor(Math.random() * 10000) + 1;
+  const id = uuidv4();
 
   const handleSubmit = (event) => {
     event.preventDefault();
