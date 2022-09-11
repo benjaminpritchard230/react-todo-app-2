@@ -108,9 +108,7 @@ const TodoApp = () => {
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-12">{createCards()}</div>
-      </div>
+      <div className="row">{createCards()}</div>
     </div>
   );
 };
