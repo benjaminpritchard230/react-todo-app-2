@@ -74,7 +74,9 @@ const TodoApp = () => {
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
-                    Delete all tasks?
+                    {mainList.length > 0
+                      ? "Delete all tasks?"
+                      : "You do not have any tasks."}
                   </h5>
                   <button
                     type="button"
@@ -83,7 +85,11 @@ const TodoApp = () => {
                     aria-label="Close"
                   ></button>
                 </div>
-                <div className="modal-body">Cannot be undone.</div>
+                <div className="modal-body">
+                  {mainList.length > 0
+                    ? "Cannot be undone."
+                    : "Add some tasks and then you can delete them."}
+                </div>
                 <div className="modal-footer">
                   <button
                     type="button"
@@ -92,16 +98,20 @@ const TodoApp = () => {
                   >
                     Cancel
                   </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={() => {
-                      handleDeleteAllClick();
-                    }}
-                    data-bs-dismiss="modal"
-                  >
-                    Delete all tasks
-                  </button>
+                  {mainList.length > 0 ? (
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => {
+                        handleDeleteAllClick();
+                      }}
+                      data-bs-dismiss="modal"
+                    >
+                      Delete all tasks
+                    </button>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>
