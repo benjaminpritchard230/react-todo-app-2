@@ -5,7 +5,7 @@ import HeaderBar from "./HeaderBar";
 
 const TodoApp = () => {
   const [mainList, setMainList] = useState(
-    JSON.parse(localStorage.getItem("mainList"))
+    JSON.parse(localStorage.getItem("mainList")) || []
   );
 
   useEffect(() => {
