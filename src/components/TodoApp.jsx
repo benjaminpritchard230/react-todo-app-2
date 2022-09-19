@@ -4,6 +4,8 @@ import UserEntry from "./UserEntry";
 import HeaderBar from "./HeaderBar";
 
 const TodoApp = () => {
+  const [searchText, setSearchText] = useState("");
+
   const [mainList, setMainList] = useState(
     JSON.parse(localStorage.getItem("mainList"))
   );
@@ -11,6 +13,10 @@ const TodoApp = () => {
   useEffect(() => {
     localStorage.setItem("mainList", JSON.stringify(mainList));
   }, [mainList]);
+
+  useEffect(() => {
+    console.log(searchText);
+  }, [searchText]);
 
   const createCards = () => {
     let cardsArray = [];
@@ -41,7 +47,7 @@ const TodoApp = () => {
 
   return (
     <div className="container">
-      <HeaderBar text="To-do App" />
+      <HeaderBar text="To-do App" setSearchText={setSearchText} />
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4">
