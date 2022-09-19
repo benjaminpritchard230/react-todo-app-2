@@ -10,17 +10,24 @@ const TodoApp = () => {
     JSON.parse(localStorage.getItem("mainList")) || []
   );
 
+  const [filteredList, setFilteredList] = useState([]);
+
   useEffect(() => {
     localStorage.setItem("mainList", JSON.stringify(mainList));
   }, [mainList]);
 
   useEffect(() => {
-    console.log(searchText);
+    const filtered = mainList.filter((task) => {
+      return task.name.includes(searchText);
+    });
+
+    setFilteredList(filtered);
+    console.log(`Search text: ${searchText}`);
   }, [searchText]);
 
-  const createCards = () => {
+  const createFilteredCards = () => {
     let cardsArray = [];
-    mainList.forEach((element, index) => {
+    filteredList.forEach((element, index) => {
       cardsArray.push(
         <TodoDisplay
           key={index}
@@ -124,7 +131,7 @@ const TodoApp = () => {
           </div>
         </div>
       </div>
-      <div className="row">{createCards()}</div>
+      <div className="row">{createFilteredCards()}</div>
     </div>
   );
 };
